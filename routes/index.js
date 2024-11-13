@@ -1,9 +1,10 @@
 import express from 'express';
 import userRoutes from './userRoutes.js';
+import userRoleRoutes from './userRoleRoutes.js';
 
 const router = express.Router();
 
 router.use('/users', userRoutes);
-// Add additional routes here
+router.use('/roles', userRoleRoutes);
 
 export default router;
