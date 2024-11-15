@@ -3,12 +3,44 @@ import Patient from '../models/Patient.js';
 // Get all patients
 export const getAllPatients = async (req, res) => {
     try {
-        const patients = await Patient.find();
-        res.status(200).json(patients);
+        // query parameters  & default values
+        const page = parseInt(req.query.pageNumber) || 1;
+        const limit = parseInt(req.query.pageSize) || 10;
+        const searchQuery = req.query.search || "";
+
+        // skip value based on the page and the limit
+        const skip = (page - 1) * limit;
+
+        const filter = searchQuery
+            ? {
+                $or: [
+                    { firstName: { $regex: searchQuery, $options: "i" } },
+                    { lastName: { $regex: searchQuery, $options: "i" } },
+                    { contactNumber: { $regex: searchQuery, $options: "i" } }
+                ]
+            }
+            : {};
+
+        // get all the patients with pagination and filter (search)
+        const patients = await Patient.find(filter)
+            .skip(skip)
+            .limit(limit);
+
+        // the total count of patients for pagination and filter (search)
+        const totalPatients = await Patient.countDocuments(filter);
+
+        // Return patients
+        res.status(200).json({
+            patients,
+            totalPatients,
+            totalPages: Math.ceil(totalPatients / limit),
+            currentPage: page,
+        });
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
 };
+
 
 // Get a single patient by ID
 export const getPatientById = async (req, res) => {
