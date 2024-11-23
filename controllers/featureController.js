@@ -1,13 +1,35 @@
 import Feature from "../models/Feature.js";
 import FeatureMapping from "../models/FeatureMapping.js";
+import UserRole from "../models/UserRole.js";
 
 // Create a new feature
 export const createFeature = async (req, res) => {
     try {
         const { featureName, description, isActive } = req.body;
+
         const feature = new Feature({ featureName, description, isActive });
         await feature.save();
-        res.status(201).json(feature);
+
+        const adminRole = await UserRole.findOne({ roleName: "Admin" });
+        if (!adminRole) {
+            return res.status(404).json({ message: "Admin role not found." });
+        }
+
+        const featureMapping = new FeatureMapping({
+            featureId: feature._id,
+            roleId: adminRole._id,
+            canCreate: true,
+            canRead: true,
+            canUpdate: true,
+            canDelete: true,
+        });
+
+        await featureMapping.save();
+
+        res.status(201).json({
+            feature,
+            featureMapping,
+        });
     } catch (error) {
         res.status(400).json({ message: error.message });
     }
