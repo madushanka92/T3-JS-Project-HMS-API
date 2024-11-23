@@ -35,8 +35,8 @@ export const loginUser = async (req, res) => {
         firstName: user.firstName,
         lastName: user.lastName,
         email: user.email,
-        role: user.roleId.roleName, // Assuming roleName exists on roleId
-        department: user.departmentId.departmentName, // Assuming departmentName exists on departmentId
+        role: user.roleId.roleName,
+        department: user.departmentId.departmentName,
       },
     });
   } catch (error) {
