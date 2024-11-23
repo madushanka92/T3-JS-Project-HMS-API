@@ -1,4 +1,5 @@
 import Feature from "../models/Feature.js";
+import FeatureMapping from "../models/FeatureMapping.js";
 
 // Create a new feature
 export const createFeature = async (req, res) => {
@@ -47,8 +48,19 @@ export const updateFeature = async (req, res) => {
 // Delete a feature by ID
 export const deleteFeature = async (req, res) => {
     try {
+        // Check if the feature is used in any FeatureMapping
+        const featureMapping = await FeatureMapping.findOne({ featureId: req.params.id });
+
+        if (featureMapping) {
+            return res.status(400).json({
+                message: "Cannot delete feature because it is being used in feature mappings."
+            });
+        }
+
+        // If not used, proceed to delete the feature
         const feature = await Feature.findByIdAndDelete(req.params.id);
         if (!feature) return res.status(404).json({ message: "Feature not found" });
+
         res.json({ message: "Feature deleted" });
     } catch (error) {
         res.status(500).json({ message: error.message });
