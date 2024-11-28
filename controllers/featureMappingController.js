@@ -1,4 +1,5 @@
 import FeatureMapping from "../models/FeatureMapping.js";
+import UserRole from "../models/UserRole.js";
 
 // Create a new feature mapping
 export const createFeatureMapping = async (req, res) => {
@@ -52,6 +53,30 @@ export const deleteFeatureMapping = async (req, res) => {
         const mapping = await FeatureMapping.findByIdAndDelete(req.params.id);
         if (!mapping) return res.status(404).json({ message: "Mapping not found" });
         res.json({ message: "Mapping deleted" });
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+
+export const getMappedFeaturesByRoleName = async (req, res) => {
+    try {
+        const { roleName } = req.params; // Get role name from params
+
+        // Find the roleId by roleName
+        const role = await UserRole.findOne({ roleName });
+        if (!role) {
+            return res.status(404).json({ message: "Role not found" });
+        }
+
+        // Fetch feature mappings for the found roleId
+        const mappings = await FeatureMapping.find({ roleId: role._id }).populate("featureId");
+
+        // If no mappings exist, return a message
+        if (!mappings || mappings.length === 0) {
+            return res.status(404).json({ message: "No feature mappings found for this role" });
+        }
+
+        res.json(mappings); // Return the mappings
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
