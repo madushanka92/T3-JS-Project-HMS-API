@@ -1,12 +1,32 @@
+import Appointment from '../models/Appointment.js';
 import Billing from '../models/Billing.js';
 
 // Create a new billing record
 export const createBilling = async (req, res) => {
     try {
         const { patientId, appointmentId, totalAmount, paymentStatus, paymentDate } = req.body;
+
+        // Create a new billing record
         const billing = new Billing({ patientId, appointmentId, totalAmount, paymentStatus, paymentDate });
         await billing.save();
-        res.status(201).json(billing);
+
+        // Update the status of the related appointment to 'Completed'
+        const updatedAppointment = await Appointment.findByIdAndUpdate(
+            appointmentId, 
+            { status: 'Completed' },
+            { new: true } // Return the updated appointment document
+        );
+
+        if (!updatedAppointment) {
+            return res.status(404).json({ message: 'Appointment not found' });
+        }
+
+        // Respond with the created billing and updated appointment
+        res.status(201).json({
+            message: 'Billing created and appointment status updated to Completed',
+            billing,
+            updatedAppointment,
+        });
     } catch (error) {
         res.status(400).json({ message: error.message });
     }
