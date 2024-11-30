@@ -32,7 +32,7 @@ const appointmentSchema = new mongoose.Schema({
     },
     type: {
         type: String,
-        enum: ['Meeting', 'In-Person'],
+        enum: ['Meeting', 'In-Person', 'Checkup', 'Emergency'],
         required: true
     },
 }, {
