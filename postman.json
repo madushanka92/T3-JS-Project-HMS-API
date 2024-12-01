@@ -1,0 +1,1679 @@
+{
+    "info": {
+        "name": "Hospital Management System API",
+        "description": "API endpoints for managing hospital-related data",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Users",
+            "item": [
+                {
+                    "name": "Create User",
+                    "request": {
+                        "method": "POST",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3030/api/users",
+                            "host": [
+                                "http://localhost:3030"
+                            ],
+                            "path": [
+                                "api",
+                                "users"
+                            ]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"name\": \"John Doe\",\n  \"email\": \"john.doe@example.com\",\n  \"password\": \"password123\"\n}"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get All Users",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3030/api/users",
+                            "host": [
+                                "http://localhost:3030"
+                            ],
+                            "path": [
+                                "api",
+                                "users"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get User by ID",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3030/api/users/{{userId}}",
+                            "host": [
+                                "http://localhost:3030"
+                            ],
+                            "path": [
+                                "api",
+                                "users",
+                                "{{userId}}"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update User",
+                    "request": {
+                        "method": "PUT",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3030/api/users/{{userId}}",
+                            "host": [
+                                "http://localhost:3030"
+                            ],
+                            "path": [
+                                "api",
+                                "users",
+                                "{{userId}}"
+                            ]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"name\": \"John Doe\",\n  \"email\": \"john.doe@newdomain.com\"\n}"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete User",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3030/api/users/{{userId}}",
+                            "host": [
+                                "http://localhost:3030"
+                            ],
+                            "path": [
+                                "api",
+                                "users",
+                                "{{userId}}"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Login User",
+                    "request": {
+                        "method": "POST",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3030/api/users/login",
+                            "host": [
+                                "http://localhost:3030"
+                            ],
+                            "path": [
+                                "api",
+                                "users",
+                                "login"
+                            ]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"email\": \"john.doe@example.com\",\n  \"password\": \"password123\"\n}"
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "User Roles",
+            "item": [
+                {
+                    "name": "Create Role",
+                    "request": {
+                        "method": "POST",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3030/api/roles",
+                            "host": [
+                                "http://localhost:3030"
+                            ],
+                            "path": [
+                                "api",
+                                "roles"
+                            ]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"roleName\": \"Admin\",\n  \"description\": \"Admin role with full permissions\"\n}"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get All Roles",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3030/api/roles",
+                            "host": [
+                                "http://localhost:3030"
+                            ],
+                            "path": [
+                                "api",
+                                "roles"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Role by ID",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3030/api/roles/{{roleId}}",
+                            "host": [
+                                "http://localhost:3030"
+                            ],
+                            "path": [
+                                "api",
+                                "roles",
+                                "{{roleId}}"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update Role",
+                    "request": {
+                        "method": "PUT",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3030/api/roles/{{roleId}}",
+                            "host": [
+                                "http://localhost:3030"
+                            ],
+                            "path": [
+                                "api",
+                                "roles",
+                                "{{roleId}}"
+                            ]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"roleName\": \"Super Admin\",\n  \"description\": \"Role with additional permissions\"\n}"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete Role",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3030/api/roles/{{roleId}}",
+                            "host": [
+                                "http://localhost:3030"
+                            ],
+                            "path": [
+                                "api",
+                                "roles",
+                                "{{roleId}}"
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Departments",
+            "item": [
+                {
+                    "name": "Create Department",
+                    "request": {
+                        "method": "POST",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3030/api/departments",
+                            "host": [
+                                "http://localhost:3030"
+                            ],
+                            "path": [
+                                "api",
+                                "departments"
+                            ]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"departmentName\": \"Cardiology\",\n  \"description\": \"Cardiology department for heart-related treatments\"\n}"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get All Departments",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3030/api/departments",
+                            "host": [
+                                "http://localhost:3030"
+                            ],
+                            "path": [
+                                "api",
+                                "departments"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Department by ID",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3030/api/departments/{{departmentId}}",
+                            "host": [
+                                "http://localhost:3030"
+                            ],
+                            "path": [
+                                "api",
+                                "departments",
+                                "{{departmentId}}"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update Department",
+                    "request": {
+                        "method": "PUT",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3030/api/departments/{{departmentId}}",
+                            "host": [
+                                "http://localhost:3030"
+                            ],
+                            "path": [
+                                "api",
+                                "departments",
+                                "{{departmentId}}"
+                            ]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"departmentName\": \"Cardiology Updated\",\n  \"description\": \"Updated description of the Cardiology department\"\n}"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete Department",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3030/api/departments/{{departmentId}}",
+                            "host": [
+                                "http://localhost:3030"
+                            ],
+                            "path": [
+                                "api",
+                                "departments",
+                                "{{departmentId}}"
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Patients",
+            "item": [
+                {
+                    "name": "Create Patient",
+                    "request": {
+                        "method": "POST",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3030/api/patients",
+                            "host": [
+                                "http://localhost:3030"
+                            ],
+                            "path": [
+                                "api",
+                                "patients"
+                            ]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Doe\",\n  \"age\": 45,\n  \"gender\": \"Male\",\n  \"medicalHistory\": \"Hypertension\"\n}"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get All Patients",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3030/api/patients",
+                            "host": [
+                                "http://localhost:3030"
+                            ],
+                            "path": [
+                                "api",
+                                "patients"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Patient by ID",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3030/api/patients/{{patientId}}",
+                            "host": [
+                                "http://localhost:3030"
+                            ],
+                            "path": [
+                                "api",
+                                "patients",
+                                "{{patientId}}"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update Patient",
+                    "request": {
+                        "method": "PUT",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3030/api/patients/{{patientId}}",
+                            "host": [
+                                "http://localhost:3030"
+                            ],
+                            "path": [
+                                "api",
+                                "patients",
+                                "{{patientId}}"
+                            ]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Doe\",\n  \"age\": 46,\n  \"gender\": \"Male\",\n  \"medicalHistory\": \"Hypertension, Diabetes\"\n}"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete Patient",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3030/api/patients/{{patientId}}",
+                            "host": [
+                                "http://localhost:3030"
+                            ],
+                            "path": [
+                                "api",
+                                "patients",
+                                "{{patientId}}"
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Rooms",
+            "item": [
+                {
+                    "name": "Create Room",
+                    "request": {
+                        "method": "POST",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3030/api/rooms",
+                            "host": [
+                                "http://localhost:3030"
+                            ],
+                            "path": [
+                                "api",
+                                "rooms"
+                            ]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"roomNumber\": \"101\",\n  \"roomType\": \"Private\",\n  \"capacity\": 2\n}"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get All Rooms",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3030/api/rooms",
+                            "host": [
+                                "http://localhost:3030"
+                            ],
+                            "path": [
+                                "api",
+                                "rooms"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Room by ID",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3030/api/rooms/{{roomId}}",
+                            "host": [
+                                "http://localhost:3030"
+                            ],
+                            "path": [
+                                "api",
+                                "rooms",
+                                "{{roomId}}"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update Room",
+                    "request": {
+                        "method": "PUT",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3030/api/rooms/{{roomId}}",
+                            "host": [
+                                "http://localhost:3030"
+                            ],
+                            "path": [
+                                "api",
+                                "rooms",
+                                "{{roomId}}"
+                            ]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"roomNumber\": \"101\",\n  \"roomType\": \"Private\",\n  \"capacity\": 3\n}"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete Room",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3030/api/rooms/{{roomId}}",
+                            "host": [
+                                "http://localhost:3030"
+                            ],
+                            "path": [
+                                "api",
+                                "rooms",
+                                "{{roomId}}"
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Admissions",
+            "item": [
+                {
+                    "name": "Create Admission",
+                    "request": {
+                        "method": "POST",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3030/api/admissions",
+                            "host": [
+                                "http://localhost:3030"
+                            ],
+                            "path": [
+                                "api",
+                                "admissions"
+                            ]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"patientId\": \"123\",\n  \"roomId\": \"101\",\n  \"admissionDate\": \"2024-12-01\",\n  \"doctorId\": \"1\"\n}"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get All Admissions",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3030/api/admissions",
+                            "host": [
+                                "http://localhost:3030"
+                            ],
+                            "path": [
+                                "api",
+                                "admissions"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Admission by ID",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3030/api/admissions/{{admissionId}}",
+                            "host": [
+                                "http://localhost:3030"
+                            ],
+                            "path": [
+                                "api",
+                                "admissions",
+                                "{{admissionId}}"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update Admission",
+                    "request": {
+                        "method": "PUT",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3030/api/admissions/{{admissionId}}",
+                            "host": [
+                                "http://localhost:3030"
+                            ],
+                            "path": [
+                                "api",
+                                "admissions",
+                                "{{admissionId}}"
+                            ]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"patientId\": \"123\",\n  \"roomId\": \"102\",\n  \"admissionDate\": \"2024-12-01\",\n  \"doctorId\": \"2\"\n}"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete Admission",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3030/api/admissions/{{admissionId}}",
+                            "host": [
+                                "http://localhost:3030"
+                            ],
+                            "path": [
+                                "api",
+                                "admissions",
+                                "{{admissionId}}"
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Features",
+            "item": [
+                {
+                    "name": "Create Feature",
+                    "request": {
+                        "method": "POST",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3030/api/features",
+                            "host": [
+                                "http://localhost:3030"
+                            ],
+                            "path": [
+                                "api",
+                                "features"
+                            ]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"name\": \"New Feature\",\n  \"description\": \"Feature description\"\n}"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get All Features",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3030/api/features",
+                            "host": [
+                                "http://localhost:3030"
+                            ],
+                            "path": [
+                                "api",
+                                "features"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Feature by ID",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3030/api/features/{{featureId}}",
+                            "host": [
+                                "http://localhost:3030"
+                            ],
+                            "path": [
+                                "api",
+                                "features",
+                                "{{featureId}}"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update Feature",
+                    "request": {
+                        "method": "PUT",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3030/api/features/{{featureId}}",
+                            "host": [
+                                "http://localhost:3030"
+                            ],
+                            "path": [
+                                "api",
+                                "features",
+                                "{{featureId}}"
+                            ]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"name\": \"Updated Feature\",\n  \"description\": \"Updated feature description\"\n}"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete Feature",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3030/api/features/{{featureId}}",
+                            "host": [
+                                "http://localhost:3030"
+                            ],
+                            "path": [
+                                "api",
+                                "features",
+                                "{{featureId}}"
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Feature Mappings",
+            "item": [
+                {
+                    "name": "Create Feature Mapping",
+                    "request": {
+                        "method": "POST",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3030/api/featureMappings",
+                            "host": [
+                                "http://localhost:3030"
+                            ],
+                            "path": [
+                                "api",
+                                "featureMappings"
+                            ]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"roleId\": \"12345\",\n  \"featureId\": \"67890\"\n}"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get All Feature Mappings",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3030/api/featureMappings",
+                            "host": [
+                                "http://localhost:3030"
+                            ],
+                            "path": [
+                                "api",
+                                "featureMappings"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Feature Mapping by ID",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3030/api/featureMappings/{{featureMappingId}}",
+                            "host": [
+                                "http://localhost:3030"
+                            ],
+                            "path": [
+                                "api",
+                                "featureMappings",
+                                "{{featureMappingId}}"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update Feature Mapping",
+                    "request": {
+                        "method": "PUT",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3030/api/featureMappings/{{featureMappingId}}",
+                            "host": [
+                                "http://localhost:3030"
+                            ],
+                            "path": [
+                                "api",
+                                "featureMappings",
+                                "{{featureMappingId}}"
+                            ]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"roleId\": \"12345\",\n  \"featureId\": \"67891\"\n}"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete Feature Mapping",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3030/api/featureMappings/{{featureMappingId}}",
+                            "host": [
+                                "http://localhost:3030"
+                            ],
+                            "path": [
+                                "api",
+                                "featureMappings",
+                                "{{featureMappingId}}"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Mapped Features by Role Name",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3030/api/feature-mappings/role/{{roleName}}",
+                            "host": [
+                                "http://localhost:3030"
+                            ],
+                            "path": [
+                                "api",
+                                "feature-mappings",
+                                "role",
+                                "{{roleName}}"
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Statistics",
+            "item": [
+                {
+                    "name": "Get Total Counts",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3030/api/statistics/counts",
+                            "host": [
+                                "http://localhost:3030"
+                            ],
+                            "path": [
+                                "api",
+                                "statistics",
+                                "counts"
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Doctor-Patient Assignments",
+            "item": [
+                {
+                    "name": "Create Doctor-Patient Assignment",
+                    "request": {
+                        "method": "POST",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3030/api/doctorPatient/assignments",
+                            "host": [
+                                "http://localhost:3030"
+                            ],
+                            "path": [
+                                "api",
+                                "doctorPatient",
+                                "assignments"
+                            ]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"doctorId\": \"12345\",\n  \"patientId\": \"67890\"\n}"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get All Doctor-Patient Assignments",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3030/api/doctorPatient/assignments",
+                            "host": [
+                                "http://localhost:3030"
+                            ],
+                            "path": [
+                                "api",
+                                "doctorPatient",
+                                "assignments"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Doctor-Patient Assignment by ID",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3030/api/doctorPatient/assignments/{{assignmentId}}",
+                            "host": [
+                                "http://localhost:3030"
+                            ],
+                            "path": [
+                                "api",
+                                "doctorPatient",
+                                "assignments",
+                                "{{assignmentId}}"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update Doctor-Patient Assignment",
+                    "request": {
+                        "method": "PUT",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3030/api/doctorPatient/assignments/{{assignmentId}}",
+                            "host": [
+                                "http://localhost:3030"
+                            ],
+                            "path": [
+                                "api",
+                                "doctorPatient",
+                                "assignments",
+                                "{{assignmentId}}"
+                            ]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"doctorId\": \"12345\",\n  \"patientId\": \"67891\"\n}"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete Doctor-Patient Assignment",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3030/api/doctorPatient/assignments/{{assignmentId}}",
+                            "host": [
+                                "http://localhost:3030"
+                            ],
+                            "path": [
+                                "api",
+                                "doctorPatient",
+                                "assignments",
+                                "{{assignmentId}}"
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Nurse-Doctor Assignments",
+            "item": [
+                {
+                    "name": "Create Nurse-Doctor Assignment",
+                    "request": {
+                        "method": "POST",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3030/api/nurseDoctor/assignments",
+                            "host": [
+                                "http://localhost:3030"
+                            ],
+                            "path": [
+                                "api",
+                                "nurseDoctor",
+                                "assignments"
+                            ]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"nurseId\": \"12345\",\n  \"doctorId\": \"67890\"\n}"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get All Nurse-Doctor Assignments",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3030/api/nurseDoctor/assignments",
+                            "host": [
+                                "http://localhost:3030"
+                            ],
+                            "path": [
+                                "api",
+                                "nurseDoctor",
+                                "assignments"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete Nurse-Doctor Assignment",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3030/api/nurseDoctor/assignments/{{assignmentId}}",
+                            "host": [
+                                "http://localhost:3030"
+                            ],
+                            "path": [
+                                "api",
+                                "nurseDoctor",
+                                "assignments",
+                                "{{assignmentId}}"
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Technician-Patient Assignments",
+            "item": [
+                {
+                    "name": "Create Technician-Patient Assignment",
+                    "request": {
+                        "method": "POST",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3030/api/technicianPatient/assignments",
+                            "host": [
+                                "http://localhost:3030"
+                            ],
+                            "path": [
+                                "api",
+                                "technicianPatient",
+                                "assignments"
+                            ]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"technicianId\": \"12345\",\n  \"patientId\": \"67890\"\n}"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get All Technician-Patient Assignments",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3030/api/technicianPatient/assignments",
+                            "host": [
+                                "http://localhost:3030"
+                            ],
+                            "path": [
+                                "api",
+                                "technicianPatient",
+                                "assignments"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete Technician-Patient Assignment",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3030/api/technicianPatient/assignments/{{assignmentId}}",
+                            "host": [
+                                "http://localhost:3030"
+                            ],
+                            "path": [
+                                "api",
+                                "technicianPatient",
+                                "assignments",
+                                "{{assignmentId}}"
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Technician-Department Assignments",
+            "item": [
+                {
+                    "name": "Create Technician-Department Assignment",
+                    "request": {
+                        "method": "POST",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3030/api/technicianDepartment/assignments",
+                            "host": [
+                                "http://localhost:3030"
+                            ],
+                            "path": [
+                                "api",
+                                "technicianDepartment",
+                                "assignments"
+                            ]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"technicianId\": \"12345\",\n  \"departmentId\": \"67890\"\n}"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get All Technician-Department Assignments",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3030/api/technicianDepartment/assignments",
+                            "host": [
+                                "http://localhost:3030"
+                            ],
+                            "path": [
+                                "api",
+                                "technicianDepartment",
+                                "assignments"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete Technician-Department Assignment",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3030/api/technicianDepartment/assignments/{{assignmentId}}",
+                            "host": [
+                                "http://localhost:3030"
+                            ],
+                            "path": [
+                                "api",
+                                "technicianDepartment",
+                                "assignments",
+                                "{{assignmentId}}"
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Appointments",
+            "item": [
+                {
+                    "name": "Create Appointment",
+                    "request": {
+                        "method": "POST",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3030/api/appointments",
+                            "host": [
+                                "http://localhost:3030"
+                            ],
+                            "path": [
+                                "api",
+                                "appointments"
+                            ]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"patientId\": \"12345\",\n  \"doctorId\": \"67890\",\n  \"appointmentDate\": \"2024-12-10T10:00:00\",\n  \"status\": \"scheduled\"\n}"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get All Appointments",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3030/api/appointments",
+                            "host": [
+                                "http://localhost:3030"
+                            ],
+                            "path": [
+                                "api",
+                                "appointments"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Appointment by ID",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3030/api/appointments/{{appointmentId}}",
+                            "host": [
+                                "http://localhost:3030"
+                            ],
+                            "path": [
+                                "api",
+                                "appointments",
+                                "{{appointmentId}}"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update Appointment",
+                    "request": {
+                        "method": "PUT",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3030/api/appointments/{{appointmentId}}",
+                            "host": [
+                                "http://localhost:3030"
+                            ],
+                            "path": [
+                                "api",
+                                "appointments",
+                                "{{appointmentId}}"
+                            ]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"appointmentDate\": \"2024-12-12T14:00:00\",\n  \"status\": \"rescheduled\"\n}"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete Appointment",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3030/api/appointments/{{appointmentId}}",
+                            "host": [
+                                "http://localhost:3030"
+                            ],
+                            "path": [
+                                "api",
+                                "appointments",
+                                "{{appointmentId}}"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update Appointment Status",
+                    "request": {
+                        "method": "PUT",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3030/api/appointments/{{appointmentId}}/status",
+                            "host": [
+                                "http://localhost:3030"
+                            ],
+                            "path": [
+                                "api",
+                                "appointments",
+                                "{{appointmentId}}",
+                                "status"
+                            ]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"status\": \"completed\"\n}"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Appointments by Patient ID",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3030/api/appointments/patient/{{patientId}}",
+                            "host": [
+                                "http://localhost:3030"
+                            ],
+                            "path": [
+                                "api",
+                                "appointments",
+                                "patient",
+                                "{{patientId}}"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Scheduled Appointments by Patient",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3030/api/appointments/scheduled/{{patientId}}",
+                            "host": [
+                                "http://localhost:3030"
+                            ],
+                            "path": [
+                                "api",
+                                "appointments",
+                                "scheduled",
+                                "{{patientId}}"
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Billings",
+            "item": [
+                {
+                    "name": "Create Billing",
+                    "request": {
+                        "method": "POST",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3030/api/billings",
+                            "host": [
+                                "http://localhost:3030"
+                            ],
+                            "path": [
+                                "api",
+                                "billings"
+                            ]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"patientId\": \"12345\",\n  \"totalAmount\": 150.50,\n  \"status\": \"pending\"\n}"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get All Billings",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3030/api/billings",
+                            "host": [
+                                "http://localhost:3030"
+                            ],
+                            "path": [
+                                "api",
+                                "billings"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Billing by ID",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3030/api/billings/{{billingId}}",
+                            "host": [
+                                "http://localhost:3030"
+                            ],
+                            "path": [
+                                "api",
+                                "billings",
+                                "{{billingId}}"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update Billing",
+                    "request": {
+                        "method": "PUT",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3030/api/billings/{{billingId}}",
+                            "host": [
+                                "http://localhost:3030"
+                            ],
+                            "path": [
+                                "api",
+                                "billings",
+                                "{{billingId}}"
+                            ]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"totalAmount\": 200.00,\n  \"status\": \"paid\"\n}"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete Billing",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3030/api/billings/{{billingId}}",
+                            "host": [
+                                "http://localhost:3030"
+                            ],
+                            "path": [
+                                "api",
+                                "billings",
+                                "{{billingId}}"
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Payments",
+            "item": [
+                {
+                    "name": "Create Payment",
+                    "request": {
+                        "method": "POST",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3030/api/payments",
+                            "host": [
+                                "http://localhost:3030"
+                            ],
+                            "path": [
+                                "api",
+                                "payments"
+                            ]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"patientId\": \"12345\",\n  \"billId\": \"67890\",\n  \"amount\": 100.00,\n  \"status\": \"completed\"\n}"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get All Payments",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3030/api/payments",
+                            "host": [
+                                "http://localhost:3030"
+                            ],
+                            "path": [
+                                "api",
+                                "payments"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Payment by ID",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3030/api/payments/{{paymentId}}",
+                            "host": [
+                                "http://localhost:3030"
+                            ],
+                            "path": [
+                                "api",
+                                "payments",
+                                "{{paymentId}}"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Payments by Bill ID",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3030/api/payments/bill/{{billId}}",
+                            "host": [
+                                "http://localhost:3030"
+                            ],
+                            "path": [
+                                "api",
+                                "payments",
+                                "bill",
+                                "{{billId}}"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Payments by Patient ID",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3030/api/payments/patient/{{patientId}}",
+                            "host": [
+                                "http://localhost:3030"
+                            ],
+                            "path": [
+                                "api",
+                                "payments",
+                                "patient",
+                                "{{patientId}}"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Update Payment Status",
+                    "request": {
+                        "method": "PUT",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3030/api/payments/{{paymentId}}/status",
+                            "host": [
+                                "http://localhost:3030"
+                            ],
+                            "path": [
+                                "api",
+                                "payments",
+                                "{{paymentId}}",
+                                "status"
+                            ]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n  \"status\": \"failed\"\n}"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete Payment",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3030/api/payments/{{paymentId}}",
+                            "host": [
+                                "http://localhost:3030"
+                            ],
+                            "path": [
+                                "api",
+                                "payments",
+                                "{{paymentId}}"
+                            ]
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get Payments by Status",
+                    "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "http://localhost:3030/api/payments/status/{{status}}",
+                            "host": [
+                                "http://localhost:3030"
+                            ],
+                            "path": [
+                                "api",
+                                "payments",
+                                "status",
+                                "{{status}}"
+                            ]
+                        }
+                    },
+                    "response": []
+                }
+            ]
+        }
+    ]
+}

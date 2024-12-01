@@ -18,7 +18,4 @@ router.put('/:id/status', updateAppointmentStatus);
 router.get('/patient/:patientId', getAppointmentsByPatientId);
 router.get('/scheduled/:patientId', getScheduledAppointmentsByPatient);
 
-
-
-
 export default router;
