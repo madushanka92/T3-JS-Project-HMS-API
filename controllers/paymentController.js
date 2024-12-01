@@ -1,7 +1,6 @@
 import Payment from '../models/Payment.js';
 import Billing from '../models/Billing.js';
 import Patient from '../models/Patient.js';
-import mongoose from 'mongoose';
 
 export const createPayment = async (req, res) => {
     try {
@@ -31,12 +30,10 @@ export const createPayment = async (req, res) => {
         // Calculate the total paid so far from the payments table
         const payments = await Payment.find({ billId, paymentStatus: 'Success' });
         const totalPaidSoFar = payments.reduce((sum, payment) => sum + payment.amountPaid, 0);
-        console.log("totalPaidSoFar ", totalPaidSoFar);
 
         // Convert Decimal128 fields to numbers for calculation
         const totalAmount = parseFloat(billing.totalAmount.toString());
         const remainingAmount = totalAmount - totalPaidSoFar;
-        console.log("1 : ", totalAmount, remainingAmount, amountPaid);
 
         // Check if the payment exceeds the remaining balance
         if (amountPaid > remainingAmount) {
@@ -57,11 +54,6 @@ export const createPayment = async (req, res) => {
 
         // Save the payment
         await payment.save();
-
-        // Recalculate the total paid after the new payment
-        const updatedTotalPaid = totalPaidSoFar + (paymentStatus === 'Success' ? amountPaid : 0);
-
-        console.log("A : ", amountPaid, remainingAmount, amountPaid >= remainingAmount)
 
         // Update payment status in the billing document
         if (amountPaid >= remainingAmount) {
