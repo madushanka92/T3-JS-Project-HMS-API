@@ -15,6 +15,7 @@ import technicianPatientRoutes from "./technicianPatientRoutes.js";
 import technicianDepartmentRoutes from "./technicianDepartmentRoutes.js";
 import appointmentRoutes from "./appointmentRoutes.js";
 import billingRoutes from "./billingRoutes.js";
+import paymentRoutes from "./paymentRoutes.js";
 
 import { getMappedFeaturesByRoleName } from '../controllers/featureMappingController.js';
 
@@ -38,6 +39,7 @@ router.use('/technicianDepartment', technicianDepartmentRoutes);
 
 router.use('/appointments', appointmentRoutes);
 router.use('/billings', billingRoutes);
+router.use('/payments', paymentRoutes);
 
 // Individual Routes
 router.get("/feature-mappings/role/:roleName", getMappedFeaturesByRoleName);

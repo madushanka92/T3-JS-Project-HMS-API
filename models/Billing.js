@@ -19,7 +19,7 @@ const billingSchema = new mongoose.Schema({
     },
     paymentStatus: {
         type: String,
-        enum: ['Paid', 'Unpaid'],
+        enum: ['Unpaid', 'Partially Paid', 'Paid'],
         required: true,
         default: 'Unpaid'
     },
