@@ -105,7 +105,7 @@ export const getPaymentById = async (req, res) => {
 
 export const getPaymentsByBillId = async (req, res) => {
     try {
-        const payments = await Payment.find({ billId: req.params.billId })
+        const payments = await Payment.find({ billId: req.params.id })
             .populate('billId') // Populate related Billing document
             .populate('patientId'); // Populate related Patient document
 
@@ -117,7 +117,7 @@ export const getPaymentsByBillId = async (req, res) => {
 
 export const getPaymentsByPatientId = async (req, res) => {
     try {
-        const payments = await Payment.find({ patientId: req.params.patientId })
+        const payments = await Payment.find({ patientId: req.params.id })
             .populate('billId') // Populate related Billing document
             .populate('patientId'); // Populate related Patient document
 

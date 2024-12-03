@@ -7,12 +7,14 @@ import {
     deleteAdmission,
 } from '../controllers/admissionController.js';
 
+import logRequest from "../middlewares/logRequest.js";
+
 const router = express.Router();
 
-router.get('/', getAllAdmissions);
-router.post('/', createAdmission);
-router.get('/:id', getAdmissionById);
-router.put('/:id', updateAdmission);
-router.delete('/:id', deleteAdmission);
+router.get('/', logRequest, getAllAdmissions);
+router.post('/', logRequest, createAdmission);
+router.get('/:id', logRequest, getAdmissionById);
+router.put('/:id', logRequest, updateAdmission);
+router.delete('/:id', logRequest, deleteAdmission);
 
 export default router;

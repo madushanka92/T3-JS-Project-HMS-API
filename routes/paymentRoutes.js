@@ -9,17 +9,18 @@ import {
     deletePayment,
     getPaymentsByStatus
 } from '../controllers/paymentController.js';
+import logRequest from '../middlewares/logRequest.js';
 
 const router = express.Router();
 
 // Payment Routes
-router.post('/', createPayment); // Create a new payment
-router.get('/', getAllPayments); // Get all payments
-router.get('/:id', getPaymentById); // Get payment by ID
-router.get('/bill/:billId', getPaymentsByBillId); // Get payments by Bill ID
-router.get('/patient/:patientId', getPaymentsByPatientId); // Get payments by Patient ID
-router.put('/:id/status', updatePaymentStatus); // Update payment status
-router.delete('/:id', deletePayment); // Delete payment by ID
-router.get('/status/:status', getPaymentsByStatus); // Get payments by status
+router.post('/', logRequest, createPayment); // Create a new payment
+router.get('/', logRequest, getAllPayments); // Get all payments
+router.get('/:id', logRequest, getPaymentById); // Get payment by ID
+router.get('/bill/:id', logRequest, getPaymentsByBillId); // Get payments by Bill ID
+router.get('/patient/:id', logRequest, getPaymentsByPatientId); // Get payments by Patient ID
+router.put('/:id/status', logRequest, updatePaymentStatus); // Update payment status
+router.delete('/:id', logRequest, deletePayment); // Delete payment by ID
+router.get('/status/:status', logRequest, getPaymentsByStatus); // Get payments by status
 
 export default router;

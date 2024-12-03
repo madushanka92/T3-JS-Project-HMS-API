@@ -6,14 +6,15 @@ import {
     updateFeature,
     deleteFeature,
 } from '../controllers/featureController.js';
+import logRequest from '../middlewares/logRequest.js';
 
 const router = express.Router();
 
 // Define routes for Feature
-router.post('/', createFeature);
-router.get('/', getAllFeatures);
-router.get('/:id', getFeatureById);
-router.put('/:id', updateFeature);
-router.delete('/:id', deleteFeature);
+router.post('/', logRequest, createFeature);
+router.get('/', logRequest, getAllFeatures);
+router.get('/:id', logRequest, getFeatureById);
+router.put('/:id', logRequest, updateFeature);
+router.delete('/:id', logRequest, deleteFeature);
 
 export default router;

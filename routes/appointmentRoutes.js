@@ -6,16 +6,17 @@ import {
     updateAppointment,
     deleteAppointment, updateAppointmentStatus, getAppointmentsByPatientId, getScheduledAppointmentsByPatient
 } from '../controllers/appointmentController.js';
+import logRequest from '../middlewares/logRequest.js';
 
 const router = express.Router();
 
-router.post('/', createAppointment); // Create a new appointment
-router.get('/', getAllAppointments); // Get all appointments
-router.get('/:id', getAppointmentById); // Get appointment by ID
-router.put('/:id', updateAppointment); // Update appointment by ID
-router.delete('/:id', deleteAppointment); // Delete appointment by ID
-router.put('/:id/status', updateAppointmentStatus);
-router.get('/patient/:patientId', getAppointmentsByPatientId);
-router.get('/scheduled/:patientId', getScheduledAppointmentsByPatient);
+router.post('/', logRequest, createAppointment); // Create a new appointment
+router.get('/', logRequest, getAllAppointments); // Get all appointments
+router.get('/:id', logRequest, getAppointmentById); // Get appointment by ID
+router.put('/:id', logRequest, updateAppointment); // Update appointment by ID
+router.delete('/:id', logRequest, deleteAppointment); // Delete appointment by ID
+router.put('/:id/status', logRequest, updateAppointmentStatus);
+router.get('/patient/:id', logRequest, getAppointmentsByPatientId);
+router.get('/scheduled/:id', logRequest, getScheduledAppointmentsByPatient);
 
 export default router;

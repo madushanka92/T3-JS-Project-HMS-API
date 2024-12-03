@@ -7,15 +7,16 @@ import {
     deleteUser,
 } from '../controllers/userController.js';
 import { loginUser } from '../controllers/authController.js';
+import logRequest from '../middlewares/logRequest.js';
 
 const router = express.Router();
 
-router.get('/', getAllUsers);
-router.post('/', createUser);
-router.get('/:id', getUserById);
-router.put('/:id', updateUser);
-router.delete('/:id', deleteUser);
+router.get('/', logRequest, getAllUsers);
+router.post('/', logRequest, createUser);
+router.get('/:id', logRequest, getUserById);
+router.put('/:id', logRequest, updateUser);
+router.delete('/:id', logRequest, deleteUser);
 
-router.post('/login', loginUser);
+router.post('/login', logRequest, loginUser);
 
 export default router;

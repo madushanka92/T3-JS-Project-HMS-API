@@ -89,7 +89,7 @@ export const updateAppointmentStatus = async (req, res) => {
 
 export const getAppointmentsByPatientId = async (req, res) => {
     try {
-        const { patientId } = req.params; // Get patientId from the URL parameter
+        const patientId = req.params?.id; // Get patientId from the URL parameter
         const appointments = await Appointment.find({ patientId })
             .populate('patientId')
             .populate('doctorId')
@@ -108,7 +108,7 @@ export const getAppointmentsByPatientId = async (req, res) => {
 // Get appointments by patientId with status 'Scheduled'
 export const getScheduledAppointmentsByPatient = async (req, res) => {
     try {
-        const { patientId } = req.params; // Get the patientId from the request params
+        const patientId = req.params?.id; // Get the patientId from the request params
         const appointments = await Appointment.find({
             patientId,
             status: 'Scheduled'  // Filter appointments by patientId and status 'Scheduled'

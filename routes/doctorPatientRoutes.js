@@ -1,12 +1,13 @@
 import express from 'express';
 import { createAssignment, getAllAssignments, getAssignmentById, updateAssignment, deleteAssignment } from '../controllers/doctorPatientController.js';
+import logRequest from '../middlewares/logRequest.js';
 
 const router = express.Router();
 
-router.post('/assignments', createAssignment);
-router.get('/assignments', getAllAssignments);
-router.get('/assignments/:id', getAssignmentById);
-router.put('/assignments/:id', updateAssignment);
-router.delete('/assignments/:id', deleteAssignment);
+router.post('/assignments', logRequest, createAssignment);
+router.get('/assignments', logRequest, getAllAssignments);
+router.get('/assignments/:id', logRequest, getAssignmentById);
+router.put('/assignments/:id', logRequest, updateAssignment);
+router.delete('/assignments/:id', logRequest, deleteAssignment);
 
 export default router;
