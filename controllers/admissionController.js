@@ -1,4 +1,5 @@
 import Admission from '../models/Admissions.js';
+import Room from '../models/Room.js';
 
 // Get all admissions
 export const getAllAdmissions = async (req, res) => {
@@ -16,8 +17,22 @@ export const getAllAdmissions = async (req, res) => {
 // Create a new admission
 export const createAdmission = async (req, res) => {
     try {
+        // Create a new admission
         const admission = new Admission(req.body);
+
+        // Save the admission
         await admission.save();
+
+        // Find the room associated with the admission
+        const room = await Room.findById(admission.roomId);
+
+        // If a room is associated with the admission, update its status to 'Occupied'
+        if (room) {
+            room.availabilityStatus = 'Occupied';
+            await room.save();
+        }
+
+        // Respond with the newly created admission
         res.status(201).json(admission);
     } catch (error) {
         res.status(400).json({ message: error.message });
