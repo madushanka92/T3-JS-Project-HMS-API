@@ -1,11 +1,72 @@
-# API Endpoints Documentation
-This document provides an overview of the available API endpoints for the Hospital Management System (HMS) backend. Each section is organized by feature/module.
+# API Project - Hospital Management System (HMS)
 
-## Base URL
-All endpoints are prefixed with the base URL:
-http://localhost:3030/api
+This is the backend API for the Hospital Management System (HMS), built with Node.js, Express, and MongoDB. The project provides RESTful APIs for managing admissions, patients, rooms, billing, appointments, and more.
 
-## Endpoints Overview
+## Features
+* Authentication and authorization
+* Admission management
+* Room and department management
+* Billing and payment tracking
+* Log management for CRUD actions
+* RESTful APIs
+
+## Requirements
+* Node.js (v16 or later recommended)
+* MongoDB (local or Atlas)
+
+## Installation
+
+* Clone the repository
+
+``` 
+git clone https://github.com/madushanka92/T3-JS-Project-HMS-API.git
+cd api-project-hms
+```
+
+*  Install dependencies
+
+```
+npm install
+```
+
+This will install the required dependencies listed in the package.json file:
+
+* bcryptjs: For hashing passwords.
+* cors: For handling cross-origin requests.
+* dotenv: For managing environment variables.
+* express: Web framework for Node.js.
+* jsonwebtoken: For generating and verifying JWT tokens.
+* mongoose: MongoDB object modeling.
+* nodemon: For automatic server restart during development.
+
+### Configure Environment Variables
+
+```
+MONGODB_URI=mongodb://localhost:27017/hms  # MongoDB URI (or MongoDB Atlas connection string)
+JWT_SECRET=your_secret_key_here            # Secret key for JWT
+PORT=5000     
+```
+
+* Start the server
+
+You can now start the server using nodemon for development, which will automatically restart the server when changes are made:
+
+```
+npm start
+```
+
+Note : By default, the server will run on port 5000 (or the port you defined in the .env file).
+
+### Middleware
+The API uses middleware for logging requests. The log data is stored automatically in the MongoDB Log collection when performing POST, PUT, and DELETE operations.
+
+
+# API Routes
+
+Reffer to the `postman.json` file for more detailed API information.
+
+
+### Endpoints Overview
 
 ### Users
 
@@ -164,3 +225,4 @@ http://localhost:3030/api
 | `POST`    | `/technicianDepartment/assignments`| **Create technician-department assignment**.  |
 | `GET`     | `/technicianDepartment/assignments`| **Retrieve all assignments**.                 |
 | `DELETE`  | `/technicianDepartment/assignments/:id` | **Delete assignment by ID**.                 |
+
